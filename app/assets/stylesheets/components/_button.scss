@@ -1,0 +1,15 @@
+.button-roja {
+  padding: 10px 20px;
+  color: white;
+  background-color: $red;
+  text-decoration: none;
+  border-radius: 10px;
+  &:hover {
+    background-color: $orange;
+    text-decoration: none;
+    color: white;
+  }
+  a {
+    margin-top:30px;
+  }
+}

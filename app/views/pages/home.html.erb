@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<div class="container-banner">
+  <img src="https://rojasorfrance.com/wp-content/uploads/2020/02/Logo-petit-Soleil-Rouge-detoure.png" alt="" class="avatar-large mb-5">
+  <h1>Ce logiciel est spécialement dédié à l'association RojaSorFrance</h1>
+  <h2>Si vous ne faite pas partie de cette association, ne vous attardez pas sur ce site</h2>
+  <%= link_to 'Connection', new_user_session_path, class: 'button-roja'%>
+</div>
+
+<%#= link_to 'Connection', new_user_session_path,  {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', class: 'button-roja'}  %>
+<!-- <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    </div>
+  </div>
+</div> -->
