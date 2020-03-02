@@ -5,5 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+puts 'Destroying all datas in the DB'
+User.destroy_all
+puts 'Users have been destroyed'
+Donor.destroy_all
+puts 'Donors have been destroyed'
+Donation.destroy_all
+puts 'Donations have been destroyed'
 
 User.create!(email: 'thomas@gmail.com', password: 'thomas@gmail.com')
+puts '1 User have been created'
+
+5.times do
+  Donor.create!(:first_name Faker::Name.unique.name, last_name: , address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email )
+end
+puts '5 Donors have been created'
+
+5.times do
+  Donor.all.each do |donor|
+
+  end

@@ -1,0 +1,11 @@
+<h1>Hello world</h1>
+
+<ul>
+  <% @donors.each do |donor| %>
+  <li>
+    <p><%= donor.first_name%></p>
+    <p><%= donor.last_name%></p>
+    <p><%= donor.donations.size%></p>
+  </li>
+  <% end %>
+</ul>
