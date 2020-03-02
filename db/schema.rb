@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_213603) do
+ActiveRecord::Schema.define(version: 2020_03_02_214108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "donations", force: :cascade do |t|
+    t.bigint "donor_id"
+    t.float "amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donor_id"], name: "index_donations_on_donor_id"
+  end
+
+  create_table "donors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
+    t.string "zip_code"
+    t.string "city"
+    t.string "email"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "pdfs", force: :cascade do |t|
+    t.bigint "donation_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["donation_id"], name: "index_pdfs_on_donation_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
