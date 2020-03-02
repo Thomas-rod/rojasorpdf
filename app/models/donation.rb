@@ -1,5 +1,4 @@
 class Donation < ApplicationRecord
   belongs_to :donor
-  validates :amout, presence: true
-  validates :amout, as
+  validates :amount, presence: true
 end

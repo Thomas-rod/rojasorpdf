@@ -19,11 +19,14 @@ User.create!(email: 'thomas@gmail.com', password: 'thomas@gmail.com')
 puts '1 User have been created'
 
 5.times do
-  Donor.create!(:first_name Faker::Name.unique.name, last_name: , address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email )
+  Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email)
 end
 puts '5 Donors have been created'
 
 5.times do
   Donor.all.each do |donor|
-
+    Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3))
   end
+end
+
+puts "#{Donation.count} donations have been created"
