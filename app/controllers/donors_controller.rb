@@ -25,5 +25,6 @@ class DonorsController < ApplicationController
 
   def params_donors
     params.require(:donor).permit(:first_name,:last_name,:address,:zip_code, :city, :email)
+  end
 
 end

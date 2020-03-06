@@ -4,10 +4,13 @@
   background-color: $red;
   text-decoration: none;
   border-radius: 10px;
+  font-weight: bold;
   &:hover {
-    background-color: $orange;
+    background-color: $red;
+    opacity: 0.4;
     text-decoration: none;
     color: white;
+    font-weight: bold;
   }
   a {
     margin-top:30px;

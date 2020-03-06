@@ -1,0 +1,36 @@
+.head-list-donors {
+  h1 {
+    margin-bottom: 10px;
+  }
+  h2 {
+    margin-bottom: 10px;
+  }
+}
+
+.list-donors {
+
+}
+
+.list-infos-donors{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+  & .list-first-item {
+    grid-column: 1 / 4
+
+  }
+  & .list-second-item {
+    grid-column: 4/8
+
+  }
+  & .list-third-item {
+
+  }
+  & .list-fourth-item {
+
+  }
+  & .list-fifth-item {
+
+  }
+
+}
