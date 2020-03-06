@@ -12,25 +12,23 @@
 }
 
 .list-infos-donors{
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 10px;
-  & .list-first-item {
-    grid-column: 1 / 4
+  // color: $red-roja;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
 
+
+}
+
+.list-infos {
+  width: 20%;
+  a {
+    text-decoration:none;
+    color: black;
+    &:hover {
+      text-decoration:none;
+      color:black;}
   }
-  & .list-second-item {
-    grid-column: 4/8
-
-  }
-  & .list-third-item {
-
-  }
-  & .list-fourth-item {
-
-  }
-  & .list-fifth-item {
-
-  }
-
+  // background-color: $green-roja;
+  // opacity: 0.3;
 }

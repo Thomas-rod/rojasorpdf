@@ -6,14 +6,21 @@
   </div>
   <div class="list-donors">
     <ul>
+      <li class="list-infos-donors">
+        <span class="list-infos"><p>Prénom</p></span>
+        <span class="list-infos"><p>Nom</p></span>
+        <span class="list-infos"><p>Email</p></span>
+        <span class="list-infos"><p>N° donations</p></span>
+        <span class="list-infos"><p>Montant Global</p></span>
+      </li>
       <% @donors.each do |donor| %>
         <%= link_to donor_path(donor) do %>
           <li class="list-infos-donors">
-            <p class="list-first-item"><%= donor.first_name%></p>
-            <p class="list-second-item"><%= donor.last_name%></p>
-            <p class="list-third-item"><%= donor.donations.size%></p>
-            <p class="list-fourth-item"><%= donor.donations.size%></p>
-            <p class="list-fifth-item"><%= donor.donations.size%></p>
+            <span class="list-infos"><p><%= donor.first_name%></p></span>
+            <span class="list-infos"><p><%= donor.last_name%></p></span>
+            <span class="list-infos"><p><%= donor.email%></p></span>
+            <span class="list-infos"><p><%= donor.donations.size%></p></span>
+            <span class="list-infos"><p><%= donor.donations.size%></p></span>
           </li>
         <% end %>
       <% end %>
