@@ -15,7 +15,7 @@ puts 'Donors have been destroyed'
 Donation.destroy_all
 puts 'Donations have been destroyed'
 
-User.create!(email: 'thomas@gmail.com', password: 'thomas@gmail.com')
+User.create!(email: 'thomas@gmail.com', password: 'thomas@gmail.com', first_name: 'Thomas', last_name: 'Rodier')
 puts '1 User have been created'
 
 5.times do

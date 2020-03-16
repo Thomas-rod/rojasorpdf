@@ -1,0 +1,26 @@
+<div class="dashboard-container">
+  <%= link_to dashboards_path do%>
+    <div id="dashboard-logo">
+      <img src="https://rojasorfrance.com/wp-content/uploads/2020/02/Logo-petit-Soleil-Rouge-detoure.png" alt="" class="avatar-large mb-5">
+        <p id="title-dashboard">Rojasor - France</p>
+    </div>
+  <% end %>
+  <%= link_to dashboards_path do %>
+    <div class="dashboard-views view-dashboard" id="first-dashboard-view">
+      <i class="fas fa-columns icon-dashboard"></i>
+      <span>Dashboard</span>
+    </div>
+  <% end %>
+  <%= link_to donors_path do %>
+    <div class="dashboard-views view-donors" id="second-donors-view">
+      <i class="fas fa-user-friends icon-dashboard"></i>
+      <span>Donateurs</span>
+    </div>
+  <% end %>
+  <%= link_to donations_path do %>
+    <div class="dashboard-views view-donations" id="third-donors-view">
+      <i class="fas fa-hand-holding-usd icon-dashboard"></i>
+      <span>Donations</span>
+    </div>
+  <% end %>
+</div>

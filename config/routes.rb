@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+  get '/dashboards', to: 'dashboards#index'
   resources :donors, only: [:index, :show] do
     resources :donations, only: :show
   end
