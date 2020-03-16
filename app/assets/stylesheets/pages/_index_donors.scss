@@ -1,4 +1,5 @@
 .head-list-donors {
+  margin: 5% 10% 5% 5%;
   h1 {
     margin-bottom: 10px;
   }
@@ -8,27 +9,26 @@
 }
 
 .list-donors {
-
-}
-
-.list-infos-donors{
-  // color: $red-roja;
-  display:flex;
-  justify-content: space-between;
-  align-items:center;
-
-
-}
-
-.list-infos {
-  width: 20%;
-  a {
-    text-decoration:none;
-    color: black;
-    &:hover {
-      text-decoration:none;
-      color:black;}
+  width: 75%;
+  box-shadow: 0 0px 1.5px rgba(0, 0, 0, 0.4);
+  height: 70%;
+  margin-left:5%;
+  & >li:first-child {
+    margin-top:5%;
   }
-  // background-color: $green-roja;
-  // opacity: 0.3;
+}
+
+.list-infos-donors {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.list-donors a {
+  text-decoration:none;
+  color: black;
+  background-color: $green-roja-light;
+  &:hover {
+    text-decoration:none;
+    color:black;
+  }
 }

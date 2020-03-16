@@ -2,4 +2,20 @@
   <div class="dashboard-data-set" data-line="first-dashboard-view">
     <%= render partial: 'shared/dashboard' %>
   </div>
+  <div class="dashboard-right">
+    <div class="dashboard-datas">
+      <h2> Bonjour <%= current_user.first_name %>,</h2>
+      <h4 class="mt-5">Souhaites-tu ajouter de nouvelles donations ?</h4>
+      <div class="container-add-donations">
+        <%= link_to 'Télécharger le fichier CSV', '#', class: 'button-light' %>
+        <%= link_to 'Déposer le fichier CSV', '#', class: 'button-download' %>
+      </div>
+    </div>
+    <div class="dashboard-donations-loader">
+      <h4>Voici le détail des donations que tu viens de déposer</h4>
+      <div class="loader-donations">
+        <p>Pas de données pour l'instant</p>
+      </div>
+    </div>
+  </div>
 </div>

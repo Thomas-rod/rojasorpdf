@@ -1,0 +1,42 @@
+// CONTAINER ARROUND DASHBOARD
+.wrapper-dashboard {
+  display:flex;
+}
+ // CONTAINER DASHBOARD
+.dashboard-data-set {
+  width:22%;
+  min-width: 22%;
+  max-width:22%;
+}
+
+.dashboard-right {
+  width:100%;
+}
+
+// CONTAINER DASHBOARD HEADER
+.dashboard-datas {
+  margin: 5% 28% 5% 5%;
+  width: 55%;
+}
+
+.container-add-donations {
+  display:flex;
+  justify-content:space-around;
+  margin-top: 5%;
+}
+
+// CONTAINER LOADING INFORMATIONS ABOUT DONATIONS
+
+.dashboard-donations-loader {
+  margin: 5% 5%;
+  height: 55%
+}
+
+.loader-donations {
+  position:relative;
+  height:90%;
+  margin-top: 2%;
+  box-shadow: 0 0px 1.5px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  text-align:center;
+}
