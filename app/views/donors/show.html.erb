@@ -1,0 +1,28 @@
+<div class="wrapper-dashboard">
+  <div class="dashboard-data-set" data-line="second-donors-view">
+    <%= render partial: 'shared/dashboard' %>
+  </div>
+  <div class="dashboard-right">
+    <div class="donor-show-container">
+      <div class="card-donor donor-donations">
+        <% @donor.donations.each do |donation| %>
+          <ul>
+            <li class="donations-name"> <%= donation.amount %></li>
+            <li class="donations"><%= donation.created_at %></li>
+            <li class="donations"><%= @donor.donations.count %></li>
+            <li class="donations"><%= @amount %>€</li>
+          </ul>
+        <% end %>
+      </div>
+      <div class="card-donor donor-informations">
+        <ul>
+          <li class="informations-name"> <%= @donor.first_name %> <%= @donor.last_name %> </li>
+          <li class="informations"> Email : <%= @donor.email %></li>
+          <li class="informations">Montant dons : <%= @donor.status %>€</li>
+          <li class="informations">Nombre dons : <%= @donor.donations.count %></li>
+          <li class="informations">Montant dons : <%= @amount %>€</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

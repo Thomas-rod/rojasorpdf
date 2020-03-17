@@ -1,0 +1,31 @@
+.donor-show-container {
+  display:flex;
+  justify-content: space-around;
+}
+.card-donor {
+  margin-top: 10%;
+  box-shadow: 0 0px 1.5px rgba(0,0,0,0.4);
+  border-radius: 15px;
+  min-height: 600px;
+}
+.donor-donations {
+  min-width: 55%;
+}
+
+.donor-informations {
+  min-width: 35%;
+  background-color: $green-roja;
+  color:white;
+}
+
+.informations-name {
+  font-weight:bold;
+  margin: 10% 5%;
+  font-size: 24px;
+}
+
+.informations {
+  font-weight:bold;
+  margin: 10% 5%;
+
+}
