@@ -16,12 +16,13 @@ Donation.destroy_all
 puts 'Donations have been destroyed'
 
 User.create!(email: 'thomas@gmail.com', password: 'thomas@gmail.com', first_name: 'Thomas', last_name: 'Rodier')
-puts '1 User have been created'
+puts "#{User.count} User have been created"
 
 5.times do
-  Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email)
+  Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email, status: 'donateur')
 end
-puts '5 Donors have been created'
+Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email, status: 'adherent')
+puts "#{Donor.count} Donors have been created"
 
 5.times do
   Donor.all.each do |donor|

@@ -7,7 +7,7 @@
       <h2> Bonjour <%= current_user.first_name %>,</h2>
       <h4 class="mt-5">Souhaites-tu ajouter de nouvelles donations ?</h4>
       <div class="container-add-donations">
-        <%= link_to 'Télécharger le fichier CSV', '#', class: 'button-light' %>
+        <%= link_to 'Télécharger le fichier CSV', @url_excel_template ,target: '_blank', class: 'button-light' %>
         <%= link_to 'Déposer le fichier CSV', '#', class: 'button-download' %>
       </div>
     </div>
