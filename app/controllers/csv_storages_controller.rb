@@ -17,7 +17,7 @@ class CsvStoragesController < ApplicationController
     CsvStorage.all.each do |donation|
       donation_email = donation.email
       if Donor.find_by(email: donation_email)
-        Donation.create!(donor: Donor.find_by(email: donation_email), amount: donation.amount)
+        Donation.create!(donor: Donor.find_by(email: donation_email), amount: donation.amount, date: donation.date)
       else
         Donor.create!(first_name: donation.first_name, last_name: donation.last_name, address: donation.address, zip_code: donation.zip_code, city: donation.city, email: donation.email, status: donation.status)
         Donation.create!(donor: Donor.last, amount: donation.amount, date: donation.date)
