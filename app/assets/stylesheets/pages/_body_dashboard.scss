@@ -33,10 +33,35 @@
 }
 
 .loader-donations {
+  overflow-y: scroll;
   position:relative;
   height:90%;
   margin-top: 2%;
   box-shadow: 0 0px 1.5px rgba(0,0,0,0.4);
   border-radius: 15px;
-  text-align:center;
+}
+
+.loader-header {
+  position:sticky;
+  padding: 0.5% 0%;
+  display:grid;
+  grid-template-columns: 9% 9% 20% 10% 10% 25% 9% 8%;
+  color:$white;
+  font-weight: bold;
+  background-color: $green-roja-light;
+  border-radius: 15px 15px 0px 0px;
+  .list-infos {
+    text-align:center;
+    padding: 10px 0%;
+  }
+}
+
+.loader-infos-donations {
+  padding: 0.5% 0%;
+  display:grid;
+  grid-template-columns: 9% 9% 20% 9% 10% 25% 9% 8%;
+  .list-infos {
+    margin-left: 20%;
+    padding: 10px 0%;
+  }
 }

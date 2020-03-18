@@ -27,5 +27,19 @@
 .informations {
   font-weight:bold;
   margin: 10% 5%;
+}
 
+.donations-name-header {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.donations-name {
+  margin: 5% 3%;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.donations {
+  margin-left: 25%;
 }

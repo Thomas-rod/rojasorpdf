@@ -14,6 +14,9 @@ Donor.destroy_all
 puts 'Donors have been destroyed'
 Donation.destroy_all
 puts 'Donations have been destroyed'
+CsvStorage.destroy_all
+puts 'Csv input row have been destroyed'
+
 
 User.create!(email: 'thomas@gmail.com', password: 'thomas@gmail.com', first_name: 'Thomas', last_name: 'Rodier')
 puts "#{User.count} User have been created"

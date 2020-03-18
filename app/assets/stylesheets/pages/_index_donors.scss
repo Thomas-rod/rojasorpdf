@@ -37,7 +37,6 @@ ul {
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   .list-infos {
-    border: 1px dotted black;
     padding: 4% 0%;
   }
   &:hover {
@@ -60,7 +59,6 @@ ul {
     border-radius: 0px 15px 0px 0px;
   }
   .list-infos {
-    border: 1px dotted black;
     padding: 4% 0%;
   }
 }

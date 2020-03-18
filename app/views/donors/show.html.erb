@@ -5,14 +5,25 @@
   <div class="dashboard-right">
     <div class="donor-show-container">
       <div class="card-donor donor-donations">
-        <% @donor.donations.each do |donation| %>
-          <ul>
-            <li class="donations-name"> <%= donation.amount %></li>
-            <li class="donations"><%= donation.created_at %></li>
-            <li class="donations"><%= @donor.donations.count %></li>
-            <li class="donations"><%= @amount %>€</li>
-          </ul>
-        <% end %>
+        <ul>
+          <li class="donations-name donations-name-header">
+            <span class="donations">Montant</span>
+            <span class="donations">Date</span>
+            <span class="donations">Reçu Fiscal</span>
+          </li>
+          <% @donor.donations.each do |donation| %>
+            <li class="donations-name">
+              <span class="donations"><%= donation.amount %>€</span>
+              <span class="donations"><%= donation.created_at.day %> <%= I18n.t("date.month_names")[donation.created_at.month].capitalize %></span>
+              <% if donation.fiscal_recip == true %>
+                <span class="donations fiscal-recip-status">Envoyé€</span>
+              <% else %>
+              <!-- Will need to add a simple_form_for to add a method update and automaticaly send a recip -->
+                <%= link_to 'J\'envoie', '#', class: 'donations fiscal-recip-status' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       </div>
       <div class="card-donor donor-informations">
         <ul>
