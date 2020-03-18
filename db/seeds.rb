@@ -29,7 +29,7 @@ puts "#{Donor.count} Donors have been created"
 
 5.times do
   Donor.all.each do |donor|
-    Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3))
+    Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3), date: Faker::Date.between(from: 2.days.ago, to: Date.today))
   end
 end
 

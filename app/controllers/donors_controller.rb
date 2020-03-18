@@ -1,4 +1,6 @@
 class DonorsController < ApplicationController
+  helper_method :sum_donations
+  # CRUD
 
   def index
     @donors = Donor.all
@@ -23,6 +25,15 @@ class DonorsController < ApplicationController
     else
       render :new
     end
+  end
+
+  # OTHER METHODS
+  def sum_donations(donor)
+    sum_donation = 0
+    donor.donations.each do |donation|
+      sum_donation += donation.amount
+    end
+    return sum_donation
   end
 
   private

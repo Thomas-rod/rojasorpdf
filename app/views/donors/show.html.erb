@@ -14,7 +14,7 @@
           <% @donor.donations.each do |donation| %>
             <li class="donations-name">
               <span class="donations"><%= donation.amount %>€</span>
-              <span class="donations"><%= donation.created_at.day %> <%= I18n.t("date.month_names")[donation.created_at.month].capitalize %></span>
+              <span class="donations"><%= donation.date.day %> <%= I18n.t("date.month_names")[donation.date.month].capitalize%> <%= donation.date.year %></span>
               <% if donation.fiscal_recip == true %>
                 <span class="donations fiscal-recip-status">Envoyé€</span>
               <% else %>
@@ -31,7 +31,7 @@
           <li class="informations"> Email : <%= @donor.email %></li>
           <li class="informations">Montant dons : <%= @donor.status %>€</li>
           <li class="informations">Nombre dons : <%= @donor.donations.count %></li>
-          <li class="informations">Montant dons : <%= @amount %>€</li>
+          <li class="informations">Montant dons : <%= sum_donations(@donor).round %>€</li>
         </ul>
       </div>
     </div>

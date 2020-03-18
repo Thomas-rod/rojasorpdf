@@ -21,7 +21,7 @@
               <span class="list-infos"><p><%= donor.first_name%></p></span>
               <span class="list-infos"><p><%= donor.last_name%></p></span>
               <span class="list-infos"><p><%= donor.donations.size%></p></span>
-              <span class="list-infos"><p><%= donor.donations.size%></p></span>
+              <span class="list-infos"><p><%= sum_donations(donor).round%>€</p></span>
             </li>
           <% end %>
         <% end %>

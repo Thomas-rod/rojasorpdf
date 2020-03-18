@@ -23,4 +23,10 @@
       <span>Donations</span>
     </div>
   <% end %>
+  <%= link_to destroy_user_session_path, method: 'delete' do %>
+    <div class="dashboard-views view-donations" id="fourth-donors-view">
+      <i class="fas fa-sign-out-alt icon-dashboard"></i>
+      <span>Se déconnecter</span>
+    </div>
+  <% end %>
 </div>
