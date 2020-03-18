@@ -9,19 +9,4 @@ class CsvStorage < ApplicationRecord
     end
   end
 
-  private
-
-    # SHOULD BE IN self.import WILL SEE THIS LATER
-    #   if Donor.find_by(email: row['email'])
-    #   else
-    #     donor_creation(row)
-    #   end
-    #   # CREATE DONATIONS
-    #   donations_creation(row)
-  def donor_creation(row)
-  end
-
-  # def donations_creation(row)
-  #   Donation.create!(donor_id: Donor.last, amount: row['amount'])
-  # end
 end
