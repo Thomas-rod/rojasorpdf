@@ -29,13 +29,14 @@
 
 .dashboard-donations-loader {
   margin: 5% 5%;
-  height: 55%
+  height: 55%;
+  max-height: 80vh;
 }
 
 .loader-donations {
   overflow-y: scroll;
   position:relative;
-  height:90%;
+  max-height: 70vh;
   margin-top: 2%;
   box-shadow: 0 0px 1.5px rgba(0,0,0,0.4);
   border-radius: 15px;
@@ -43,6 +44,7 @@
 
 .loader-header {
   position:sticky;
+  top:0px;
   padding: 0.5% 0%;
   display:grid;
   grid-template-columns: 9% 9% 20% 10% 10% 25% 9% 8%;
