@@ -12,16 +12,18 @@
             <span class="donations">Reçu Fiscal</span>
           </li>
           <% @donor.donations.each do |donation| %>
-            <li class="donations-name">
-              <span class="donations"><%= donation.amount %>€</span>
-              <span class="donations"><%= donation.date.day %> <%= I18n.t("date.month_names")[donation.date.month].capitalize%> <%= donation.date.year %></span>
-              <% if donation.fiscal_recip == true %>
-                <span class="donations fiscal-recip-status">Envoyé€</span>
-              <% else %>
-              <!-- Will need to add a simple_form_for to add a method update and automaticaly send a recip -->
-                <%= link_to 'J\'envoie', '#', class: 'donations fiscal-recip-status' %>
-              <% end %>
-            </li>
+            <%= link_to donor_donation_path(donation) do %>
+              <li class="donations-name">
+                <span class="donations"><%= donation.amount %>€</span>
+                <span class="donations"><%= donation.date.day %> <%= I18n.t("date.month_names")[donation.date.month].capitalize%> <%= donation.date.year %></span>
+                <% if donation.fiscal_recip == true %>
+                  <span class="donations fiscal-recip-status">Envoyé€</span>
+                <% else %>
+                <!-- Will need to add a simple_form_for to add a method update and automaticaly send a recip -->
+                  <%= link_to 'J\'envoie', '#', class: 'donations fiscal-recip-status' %>
+                <% end %>
+              </li>
+            <% end %>
           <% end %>
         </ul>
       </div>

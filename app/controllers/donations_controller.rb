@@ -7,6 +7,19 @@ class DonationsController < ApplicationController
 
   def show
     @donation = Donation.find(params[:id])
+    respond_to do |format|
+            format.html
+            format.pdf do
+                render pdf: "Reçu fiscal No. #{@donation.id} - #{@donation.donor.first_name} #{@donation.donor.last_name}",
+                layout: 'pdf.html',
+                page_size: 'A4',
+                template: "donations/show.html.erb",
+                lowquality: true,
+                zoom: 1,
+                dpi: 300,
+                encoding:"UTF-8"
+            end
+    end
   end
 
   def new
@@ -27,6 +40,6 @@ class DonationsController < ApplicationController
   private
 
   def params_donation
-    params.require(:donation).permit(:amount)
+    params.require(:donation).permit(:amount, :date)
   end
 end

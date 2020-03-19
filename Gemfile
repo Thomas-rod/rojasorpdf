@@ -33,6 +33,12 @@ gem 'devise'
 # Faker
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+# rails-generate-pdf/Gemfile
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.3'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
