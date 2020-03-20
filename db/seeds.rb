@@ -33,6 +33,6 @@ puts "#{Donor.count} Donors have been created"
     Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3), date: Faker::Date.between(from: 2.days.ago, to: Date.today))
   end
 end
-Donation.create!(donor_id: thomas, amount: 350, date: Faker::Date.between(from: 2.days.ago, to: Date.today))
+Donation.create!(donor: thomas, amount: 350, date: Faker::Date.between(from: 2.days.ago, to: Date.today))
 
 puts "#{Donation.count} donations have been created"
