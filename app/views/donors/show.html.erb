@@ -33,6 +33,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Don N°<%= donation.id %> - <%= donation.donor.last_name %> <%= donation.donor.first_name %></h5>
                       <% if donation.fiscal_recip == false %>
                         <%= link_to 'Envoyer par email', '#', class: 'send-button-pdf' %>
+                        <%#= simple_form_for donation, :url => { :controller => "donations", :action => "" }, :html => {:method => :post}, multipart: true do |f| %>
                       <% else %>
                         <%= link_to 'Envoyé', '#', class: 'send-button-pdf-success' %>
                      <% end %>
