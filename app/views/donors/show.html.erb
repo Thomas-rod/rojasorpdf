@@ -32,10 +32,9 @@
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Don N°<%= donation.id %> - <%= donation.donor.last_name %> <%= donation.donor.first_name %></h5>
                       <% if donation.fiscal_recip == false %>
-                        <%= link_to 'Envoyer par email', '#', class: 'send-button-pdf' %>
-                        <%#= simple_form_for donation, :url => { :controller => "donations", :action => "" }, :html => {:method => :post}, multipart: true do |f| %>
+                        <%= link_to 'Envoyer par email', donor_donation_path(donation.donor, donation), method: 'patch', class: 'send-button-pdf' %>
                       <% else %>
-                        <%= link_to 'Envoyé', '#', class: 'send-button-pdf-success' %>
+                        <span class='send-button-pdf-success'> Envoyé</span>
                      <% end %>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>

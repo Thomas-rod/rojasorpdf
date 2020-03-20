@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get '/dashboards', to: 'dashboards#index'
   # DONORS ROUTES
   resources :donors, only: [:index, :show] do
-    resources :donations, only: :show
+    resources :donations, only: [:show, :update]
   end
   resources :donations, only: :index
+  # patch '/donors/:donor_id/donations/:id/edit_donation', to: 'donations#update_fiscal_recip'
   resources :csv_storages do
     collection { post :import }
   end
