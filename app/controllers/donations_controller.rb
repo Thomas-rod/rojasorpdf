@@ -30,7 +30,7 @@ class DonationsController < ApplicationController
   def create
     @donor = Donor.find(params[:id])
     @donation = Donation.new(params_donation)
-    @donation.user = @donor
+    @donation.donor = @donor
     if @donation.save!
       redirect_to dashboard_donor_path(@donor)
     else
@@ -41,10 +41,11 @@ class DonationsController < ApplicationController
   def update
     @donation = Donation.find(params[:id])
     @donor = @donation.donor
-    DonationMailer.with(donor: @donor).donation_recip
+    # raise
+    DonationMailer.donation_recip(@donor).deliver_now
     @donation.fiscal_recip = true
     @donation.save!
-    redirect_to donor_path(@donor)
+    redirect_to donor_path(@donor), notice: 'Le mail a bien été envoyé'
   end
 
   private
