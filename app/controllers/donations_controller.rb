@@ -1,4 +1,5 @@
 class DonationsController < ApplicationController
+  helper_method :fiscal_recip_send
 
   def index
     @donors = Donor.all
@@ -8,17 +9,17 @@ class DonationsController < ApplicationController
   def show
     @donation = Donation.find(params[:id])
     respond_to do |format|
-            format.html
-            format.pdf do
-                render pdf: "Reçu fiscal No. #{@donation.id} - #{@donation.donor.first_name} #{@donation.donor.last_name}",
-                layout: 'pdf.html',
-                page_size: 'A4',
-                template: "donations/show.html.erb",
-                lowquality: true,
-                zoom: 1,
-                dpi: 300,
-                encoding:"UTF-8"
-            end
+      format.html
+      format.pdf do
+          render pdf: "Reçu fiscal No. #{@donation.id} - #{@donation.donor.first_name} #{@donation.donor.last_name}",
+          layout: 'pdf.html',
+          page_size: 'A4',
+          template: "donations/show.html.erb",
+          lowquality: true,
+          zoom: 1,
+          dpi: 300,
+          encoding:"UTF-8"
+      end
     end
   end
 
@@ -35,6 +36,15 @@ class DonationsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update_fiscal_recip
+
+    @donor = donation.donor
+    DonationMailer.with(donor: @donor).donation_recip
+    donation.fiscal_recip = true
+    donation.save!
+
   end
 
   private
