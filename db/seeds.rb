@@ -25,6 +25,7 @@ puts "#{User.count} User have been created"
   Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email, status: 'donateur')
 end
 Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique.name, address: Faker::Address.street_address, zip_code: Faker::Address.zip_code, city: Faker::Address.city, email: Faker::Internet.email, status: 'adherent')
+thomas = Donor.create!(first_name: 'Thomas', last_name: 'Rodier', address: '14 rue des lyonnais', zip_code: '33000', city: 'Bordeaux', email: 'rodiert17@gmail.com', status: 'adherent')
 puts "#{Donor.count} Donors have been created"
 
 5.times do
@@ -32,5 +33,6 @@ puts "#{Donor.count} Donors have been created"
     Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3), date: Faker::Date.between(from: 2.days.ago, to: Date.today))
   end
 end
+Donation.create!(donor_id: thomas, amount: 350, date: Faker::Date.between(from: 2.days.ago, to: Date.today))
 
 puts "#{Donation.count} donations have been created"
