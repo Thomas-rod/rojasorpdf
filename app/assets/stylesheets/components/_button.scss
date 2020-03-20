@@ -83,8 +83,8 @@
   text-align:center;
   text-decoration: none;
   color: black;
-  min-width: 150px;
-  padding: 0.5% 2.5%;
+  min-width: 200px;
+  padding: 4.5% 2.5%;
   border-radius: 15px;
   border: 1px solid $green-roja-light;
   &:hover {
@@ -96,8 +96,8 @@
 
 .button-download-small-pdf {
   text-decoration:none;
-  min-width: 150px;
-  padding: 0.5% 2.5%;
+  min-width: 200px;
+  padding: 4.5% 2.5%;
   margin-left: 3%;
   border-radius: 15px;
   background-color: $green-roja;
@@ -109,3 +109,36 @@
     background-color: $green-roja-light;
   }
 }
+
+.send-button-pdf {
+  font-size:16px;
+  text-decoration:none;
+  min-width: 200px;
+  padding: 0.5% 2.5%;
+  border-radius: 15px;
+  background-color: $green-roja;
+  color: $white !important;
+  text-align:center;
+  &:hover {
+    text-decoration:none;
+    color: $white;
+    background-color: $green-roja-light;
+  }
+}
+
+.send-button-pdf-success {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  min-width: 200px;
+  padding: 4.5% 2.5%;
+  border-radius: 15px;
+  border: 1px solid #5CA369;
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #5CA369;
+  }
+}
+
+

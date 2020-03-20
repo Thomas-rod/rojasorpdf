@@ -6,24 +6,55 @@
     <div class="donor-show-container">
       <div class="card-donor donor-donations">
         <ul>
-          <li class="donations-name donations-name-header">
-            <span class="donations">Montant</span>
-            <span class="donations">Date</span>
-            <span class="donations">Reçu Fiscal</span>
+          <li class="list-header-donors">
+            <span class="list-infos">Montant</span>
+            <span class="list-infos">Date</span>
+            <span class="list-infos">Reçu Fiscal</span>
+            <span class="list-infos">PDF</span>
           </li>
+          <% counter = 1 %>
           <% @donor.donations.each do |donation| %>
-            <%= link_to donor_donation_path(donation) do %>
-              <li class="donations-name">
-                <span class="donations"><%= donation.amount %>€</span>
-                <span class="donations"><%= donation.date.day %> <%= I18n.t("date.month_names")[donation.date.month].capitalize%> <%= donation.date.year %></span>
-                <% if donation.fiscal_recip == true %>
-                  <span class="donations fiscal-recip-status">Envoyé€</span>
+            <button type="button" class="button-donation-modal" data-toggle="modal" data-target="#exampleModal<%= counter %>" data-whatever="@getbootstrap">
+              <li class="list-infos-donors">
+                <span class="list-infos"><p><%= donation.amount%>€</p></span>
+                <span class="list-infos"><p><%= donation.date%></p></span>
+                <% if  donation.fiscal_recip == false %>
+                  <span class="list-infos"><p>Non envoyé</p></span>
                 <% else %>
-                <!-- Will need to add a simple_form_for to add a method update and automaticaly send a recip -->
-                  <%= link_to 'J\'envoie', '#', class: 'donations fiscal-recip-status' %>
+                  <span class="list-infos"><p>Envoyé</p></span>
                 <% end %>
+                <span class="list-infos"><i class="far fa-file-pdf"></i></span>
               </li>
-            <% end %>
+            </button>
+            <div class="modal fade" id="exampleModal<%= counter %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Don N°<%= donation.id %> - <%= donation.donor.last_name %> <%= donation.donor.first_name %></h5>
+                      <% if donation.fiscal_recip == false %>
+                        <%= link_to 'Envoyer par email', '#', class: 'send-button-pdf' %>
+                      <% else %>
+                        <%= link_to 'Envoyé', '#', class: 'send-button-pdf-success' %>
+                     <% end %>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <%= render partial: 'shared/donation', locals: { donation: donation }%>
+                    <div class="modal-footer">
+                      <%= link_to donor_path(donation.donor) do %>
+                        <button class="button-light-small-pdf">Retour</button>
+                      <% end %>
+                      <%= link_to  donor_donation_path(donation, format: :pdf) do %>
+                        <button class="button-light-small-pdf">Télécharger le PDF <i class="far fa-file-pdf"></i></button>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% counter +=  1 %>
           <% end %>
         </ul>
       </div>
@@ -31,7 +62,7 @@
         <ul>
           <li class="informations-name"> <%= @donor.first_name %> <%= @donor.last_name %> </li>
           <li class="informations"> Email : <%= @donor.email %></li>
-          <li class="informations">Montant dons : <%= @donor.status %>€</li>
+          <li class="informations">Status : <%= @donor.status %></li>
           <li class="informations">Nombre dons : <%= @donor.donations.count %></li>
           <li class="informations">Montant dons : <%= sum_donations(@donor).round %>€</li>
         </ul>

@@ -1,12 +1,3 @@
-<div class="navbar-pdf-buton">
-  <%= link_to donor_path(@donation.donor) do %>
-    <button class="button-light-small-pdf">Retour</button>
-  <% end %>
-  <%= link_to  donor_donation_path(@donation, format: :pdf) do %>
-    <button class="button-download-small-pdf">Télécharger le PDF <i class="far fa-file-pdf"></i></button>
-  <% end %>
-</div>
-
 <div class="invoice-box">
   <table cellpadding="0" cellspacing="0">
     <tr class="top">
@@ -63,7 +54,7 @@
           <%= @donation.date.day %>/<%= @donation.date.month %>/<%= @donation.date.year %>
       </td>
       <td class="right">
-          <b> <%= @donation.amount %></b>
+          <b> <%= @donation.amount %>€</b>
       </td>
     </tr>
   </table>

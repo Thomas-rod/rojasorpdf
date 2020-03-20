@@ -1,0 +1,77 @@
+<div class="invoice-box">
+  <table cellpadding="0" cellspacing="0">
+    <tr class="top">
+      <td colspan="4">
+        <table>
+          <tr>
+            <td class="title">
+              <%= image_tag wicked_pdf_asset_base64('logo_roja.png') %>
+            </td>
+            <td>
+              Don N° : <b><%= donation.id %></b>
+              <br>
+              Créé le : <b><%= donation.date.strftime('%d/%m/%Y') %></b>
+              <br>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="information">
+      <td colspan="4">
+        <table>
+          <tr>
+            <td>
+              <b>Soleil Rouge - RojaSor - France</b><br>
+              2 passage du Fossé Noir 10120 ST André les vergers<br>
+              Mail : <%= mail_to 'rojasorfrance@gmail.com'%><br>
+              Site : <%= link_to 'rojasorfrance.com', "https://www.rojasorfrance.com", target: '_blank' %>
+          </td>
+            <td>
+              <b><%= donation.donor.first_name %> <%= donation.donor.last_name %></b><br>
+              Mail : <%= donation.donor.email %><br>
+              <%= donation.donor.address %><br>
+              <%= donation.donor.zip_code %>, <%= donation.donor.city %>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr class="heading">
+      <td>Nom</td>
+      <td class="right">Prénom</td>
+      <td class="right">Date</td>
+      <td class="right">Montant</td>
+    </tr>
+    <tr class="item">
+      <td>
+        <%= donation.donor.last_name %>
+      </td>
+      <td class="right">
+          <%= donation.donor.first_name %>
+      </td>
+      <td class="right">
+          <%= donation.date.day %>/<%= donation.date.month %>/<%= donation.date.year %>
+      </td>
+      <td class="right">
+          <b> <%= donation.amount %>€</b>
+      </td>
+    </tr>
+  </table>
+  <div class="pdf-middle-info">
+    <h5>Reçu au titre des dons à certains organismes d'intérêt général.</h5>
+    <h6>Articles 200, 238 bis et 885-0 V bis du code général des impôts (CGI)</h6>
+    <p>Association fournissant gratuitement une aide alimentaire ou des soins médicaux à des personnes en difficulté ou favorisant leur logement</p>
+  </div>
+  <table class="header-pdf">
+    <tr>
+      <th>
+        <p class="pdf-placeholder">Fait à Drancy le : <%= Time.now.day %>/<%= Time.now.month %>/<%= Time.now.year %></p>
+        <p class="pdf-placeholder"> <%= current_user.first_name %> <%= current_user.last_name %></p>
+      </th>
+      <th>
+        <p class="pdf-placeholder" id="signature-pdf">Signature : <%= image_tag wicked_pdf_asset_base64('signature.png'), class: 'avatar-signature-pdf' %>
+      </th>
+    </tr>
+  </table>
+</div>
