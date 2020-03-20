@@ -38,13 +38,13 @@ class DonationsController < ApplicationController
     end
   end
 
-  def update_fiscal_recip
-
-    @donor = donation.donor
+  def update
+    @donation = Donation.find(params[:id])
+    @donor = @donation.donor
     DonationMailer.with(donor: @donor).donation_recip
-    donation.fiscal_recip = true
-    donation.save!
-
+    @donation.fiscal_recip = true
+    @donation.save!
+    redirect_to donor_path(@donor)
   end
 
   private
