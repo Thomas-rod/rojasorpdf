@@ -67,7 +67,7 @@
     <tr>
       <th>
         <p class="pdf-placeholder">Fait à Drancy le : <%= Time.now.day %>/<%= Time.now.month %>/<%= Time.now.year %></p>
-        <p class="pdf-placeholder"> <%= current_user.first_name %> <%= current_user.last_name %></p>
+        <p class="pdf-placeholder"> <%= User.first.first_name %> <%= User.first.last_name %></p>
       </th>
       <th>
         <p class="pdf-placeholder" id="signature-pdf">Signature : <%= image_tag wicked_pdf_asset_base64('signature.png'), class: 'avatar-signature-pdf' %>
@@ -75,71 +75,3 @@
     </tr>
   </table>
 </div>
-
-
-
-<!--OTHER TRY -->
-<!--     <div class="wrapper-pdf">
-          <table class="header-pdf">
-            <tr>
-              <th> <%= image_tag wicked_pdf_asset_base64('logo_roja.png'), class: 'avatar-pdf' %></th>
-              <th>
-                <h3>Soleil Rouge - RojaSor - France </h3>
-                <p>Association régie par la loi du 1er Juillet 1901</p>
-                <p>Enregistré au registre de la Préfecture de l'Aube</p>
-                <p> <strong> N° W103004582</strong></p>
-              </th>
-            </tr>
-          </table>
-          <div class="pdf-header-bottom">
-            <h6> 2 passage du Fossé Noir 10120 ST André les vergers</h6>
-            <%=  link_to 'rojasorfrance.com', "https://www.rojasorfrance.com", target: '_blank' %> -
-            Email : <%= mail_to 'rojasorfrance@gmail.com'%>
-          </div>
-          <div class="pdf-middle-info">
-            <h5>Reçu au titre des dons à certains organismes d'intérêt général.</h5>
-            <h6>Articles 200, 238 bis et 885-0 V bis du code général des impôts (CGI)</h6>
-            <p>Association fournissant gratuitement une aide alimentaire ou des soins médicaux à des personnes en difficulté ou favorisant leur logement</p>
-          </div>
-          <p id="recip-number"> Reçu N° <%= @donation.id %></p>
-          <table class="table-infos-donation">
-            <tr>
-              <th> <span class="pdf-placeholder">Nom - Prénom :</span> </th>
-              <th> <span class="pdf-input"> <%= @donation.donor.first_name %> <%= @donation.donor.last_name %></span> </th>
-            </tr>
-            <tr>
-              <th> <span class="pdf-placeholder">Adresse :</span></th>
-              <th> <span class="pdf-input"> <%= @donation.donor.address %></span> </th>
-            </tr>
-            <tr>
-              <th> <span class="pdf-placeholder">Code Postal :</span> </th>
-              <th> <span class="pdf-input"> <%= @donation.donor.zip_code %></span> </th>
-            </tr>
-            <tr>
-              <th> <span class="pdf-placeholder">Ville :</span> </th>
-              <th> <span class="pdf-input"> <%= @donation.donor.city %> </th>
-            </tr>
-            <tr>
-              <th> <span class="pdf-placeholder">Date du versement :</span> </th>
-              <th> <span class="pdf-input"><%= @donation.date.day %>/<%= @donation.date.month %>/<%= @donation.date.year %> </th>
-            </tr>
-          </table>
-          <span>Le bénéficiaire reconnaît avoir reçu au titre des dons et versements ouvrant droit à réduction d'impôt la somme suivante :</span>
-          <table class="table-infos-donation-other">
-            <tr>
-              <th> <span class="pdf-placeholder">Montant du don :</span> </th>
-              <th> <span class="pdf-input"> <%= @donation.amount %>€</span> </th>
-            </tr>
-          </table >
-          <table class="header-pdf">
-            <tr>
-              <th>
-                <p class="pdf-placeholder">Fait à Drancy le : <%= Time.now.day %>/<%= Time.now.month %>/<%= Time.now.year %></p>
-                <p class="pdf-placeholder"> <%= current_user.first_name %> <%= current_user.last_name %></p>
-              </th>
-              <th>
-                <p class="pdf-placeholder" id="signature-pdf">Signature : <%= image_tag wicked_pdf_asset_base64('signature.png'), class: 'avatar-signature-pdf' %>
-              </th>
-            </tr>
-          </table>
-        </div> -->
