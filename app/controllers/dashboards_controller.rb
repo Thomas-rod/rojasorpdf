@@ -5,10 +5,11 @@ class DashboardsController < ApplicationController
     @donations = Donation.all
     @donors = Donor.all
     @csv_storage = CsvStorage.new
-    # raise
-    if (Time.now - CsvStorage.last.created_at) > 10800
-      CsvStorage.destroy_all
+    unless CsvStorage.all.count == 0
+      if (Time.now - CsvStorage.last.created_at) > 10800
+        CsvStorage.destroy_all
+      end
     end
-    @csv_storages = CsvStorage.all
+    @csv_storages = CsvStorage.all.order(last_name: 'ASC')
   end
 end

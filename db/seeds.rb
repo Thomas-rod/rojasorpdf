@@ -28,11 +28,13 @@ Donor.create!(first_name: Faker::Name.unique.name, last_name: Faker::Name.unique
 thomas = Donor.create!(first_name: 'Thomas', last_name: 'Rodier', address: '14 rue des lyonnais', zip_code: '33000', city: 'Bordeaux', email: 'rodiert17@gmail.com', status: 'adherent')
 puts "#{Donor.count} Donors have been created"
 
+counter = 1
 5.times do
   Donor.all.each do |donor|
-    Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3), date: Faker::Date.between(from: 2.days.ago, to: Date.today))
+    Donation.create!(donor_id: donor.id, amount: Faker::Number.number(digits: 3), date: Faker::Date.between(from: 2.days.ago, to: Date.today), platform: 'helloasso', donation_number: counter )
+    counter = counter + 1
   end
 end
-Donation.create!(donor: thomas, amount: 350, date: Faker::Date.between(from: 2.days.ago, to: Date.today))
+Donation.create!(donor: thomas, amount: 350, date: Faker::Date.between(from: 2.days.ago, to: Date.today), platform: 'paypal', donation_number: 450)
 
 puts "#{Donation.count} donations have been created"

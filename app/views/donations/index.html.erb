@@ -1,31 +1,47 @@
 <div class="wrapper-dashboard">
   <div class="dashboard-data-set" data-line="third-donors-view">
-  <%= render partial: 'shared/dashboard' %>
+    <%= render partial: 'shared/dashboard' %>
   </div>
   <div class="dashboard-right">
-      <div class="head-list-donors">
-        <h1>Bonjour <%= current_user.first_name %> !</h1>
-        <h2>Voici la liste de l'ensemble des donations</h2>
-      </div>
-      <div class="list-donations">
-        <ul>
-          <li class="list-header-donations">
-            <span class="donations"><p>Date</p></span>
-            <span class="donations"><p>N° don</p></span>
-            <span class="donations"><p>Montant</p></span>
-            <span class="donations"><p>Donateur</p></span>
-          </li>
-          <% @donations.each do |donation| %>
-            <%= link_to donor_path(donation.donor) do %>
-              <li class="list-infos-donations">
-                <span class="donations"><p><%= donation.date%></p></span>
-                <span class="donations"><p><%= donation.id%></p></span>
-                <span class="donations"><p><%= donation.amount%>€</p></span>
-                <span class="donations"><p><%= donation.donor.first_name%> <%= donation.donor.last_name%></p></span>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
+    <div class="head-list-donors">
+      <h1>Bonjour <%= current_user.first_name %> !</h1>
+      <h2>Voici la liste de l'ensemble des donations</h2>
     </div>
+    <div class="list-donations">
+      <ul>
+        <li class="list-header-donations">
+          <span class="donations">
+            <p>Date</p>
+          </span>
+          <span class="donations">
+            <p>Plateforme</p>
+          </span>
+          <span class="donations">
+            <p>Montant</p>
+          </span>
+          <span class="donations">
+            <p>Donateur</p>
+          </span>
+        </li>
+        <% @donations.each do |donation| %>
+          <%= link_to donor_path(donation.donor) do %>
+            <li class="list-infos-donations">
+              <span class="donations">
+                <p><%= donation.date%></p>
+              </span>
+              <span class="donations">
+                <p><%= donation.platform%></p>
+              </span>
+              <span class="donations">
+                <p><%= donation.amount%>€</p>
+              </span>
+              <span class="donations">
+                <p><%= donation.donor.first_name%> <%= donation.donor.last_name%></p>
+              </span>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
