@@ -41,9 +41,7 @@ class DonationsController < ApplicationController
   def update
     @donation = Donation.find(params[:id])
     @donor = @donation.donor
-    # raise
     DonationMailer.send_recip(@donation).deliver_now
-    # DonationMailer.donation_recip(@donor, @donation).deliver_now
     @donation.fiscal_recip = true
     @donation.save!
     redirect_to donor_path(@donor), notice: 'Le mail a bien été envoyé'
