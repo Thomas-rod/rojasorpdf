@@ -7,6 +7,12 @@
       <h1>Bonjour <%= current_user.first_name %> !</h1>
       <h2>Voici la liste de l'ensemble des donateurs</h2>
     </div>
+    <div class="search-header-donors">
+      <%= simple_form_for :search, url: donors_path, method: "get", defer: true, html: { class: 'form-inline' } do |f| %>
+        <%= f.input :name, input_html: {value: ""}, label: "Donateur", placeholder: "Donateur..." %>
+        <%= f.submit "Chercher", class: "send-button-pdf-success", value: "Chercher" %>
+      <% end %>
+    </div>
     <div class="list-donors">
       <ul>
         <li class="list-header-donors">

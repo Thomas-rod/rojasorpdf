@@ -4,6 +4,11 @@ class DonorsController < ApplicationController
 
   def index
     @donors = Donor.all.order(last_name: 'ASC')
+    @search = params["search"]
+    if @search.present?
+      @name = @search["name"]
+      @donors = Donor.where("last_name ILIKE ? OR first_name ILIKE ? OR email ILIKE ?", "%#{@name}%","%#{@name}%","%#{@name}%").order(last_name: 'ASC')
+    end
   end
 
   def show

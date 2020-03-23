@@ -3,7 +3,7 @@ ul {
 }
 
 .head-list-donors {
-  margin: 5% 10% 5% 5%;
+  margin: 5% 10% 2% 5%;
   h1 {
     margin-bottom: 10px;
   }
@@ -19,6 +19,7 @@ ul {
   height: 70%;
   max-height:80vh;
   border-radius: 15px;
+  margin-top: 1%;
   margin-left:5%;
   text-align:center;
 }
@@ -65,3 +66,18 @@ ul {
   }
 }
 
+// OVER-WRIGHT BOOTSTRAP
+.form-control {
+  border-radius: 15px;
+  // margin-left: 5%;
+}
+
+.form-inline {
+  margin: 0 20%;
+  & .send-button-pdf-success {
+    margin-left: 5%;
+    padding: 0.9% 2.5%;
+  }
+  label {
+    display:none;}
+}

@@ -8,13 +8,13 @@
 require 'faker'
 
 puts 'Destroying all datas in the DB'
-User.destroy_all
+User.destroy_all if Rails.env.development?
 puts 'Users have been destroyed'
-Donor.destroy_all
+Donor.destroy_all if Rails.env.development?
 puts 'Donors have been destroyed'
-Donation.destroy_all
+Donation.destroy_all if Rails.env.development?
 puts 'Donations have been destroyed'
-CsvStorage.destroy_all
+CsvStorage.destroy_all if Rails.env.development?
 puts 'Csv input row have been destroyed'
 
 

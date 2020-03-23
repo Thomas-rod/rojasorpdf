@@ -11,7 +11,7 @@ class DonationsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-          render pdf: "Reçu fiscal No. #{@donation.id} - #{@donation.donor.first_name} #{@donation.donor.last_name}",
+        render pdf: "Reçu fiscal No. #{@donation.id} - #{@donation.donor.first_name} #{@donation.donor.last_name}",
           layout: 'pdf.html',
           page_size: 'A4',
           template: "donations/show.html.erb",
