@@ -3,7 +3,7 @@ class DonorsController < ApplicationController
   # CRUD
 
   def index
-    @donors = Donor.all.order(first_name: 'ASC')
+    @donors = Donor.all.order(last_name: 'ASC')
   end
 
   def show

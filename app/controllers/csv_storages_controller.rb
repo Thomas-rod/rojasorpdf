@@ -1,7 +1,7 @@
 class CsvStoragesController < ApplicationController
 
   def index
-    @csv_storages = CsvStorage.all
+    @csv_storages = CsvStorage.all.order(:date 'ASC')
   end
 
   def import

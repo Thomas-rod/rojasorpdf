@@ -21,11 +21,11 @@
               <div class="modal-body">
                 <%= simple_form_for @csv_storage, :url => { :controller => "csv_storages", :action => "import" }, :html => {:method => :post}, multipart: true do |f| %>
                   <%= f.file_field :file, accept: ".csv" %>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="button-light-small" data-dismiss="modal">Fermer</button>
-                <%= f.button :submit, class: 'button-download-small', value: 'Valider'  %>
-              <% end %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="button-light-small" data-dismiss="modal">Fermer</button>
+                  <%= f.button :submit, class: 'button-download-small', value: 'Valider'  %>
+                <% end %>
               </div>
             </div>
           </div>
@@ -37,8 +37,8 @@
       <div class="loader-donations">
         <ul>
           <li class="loader-header">
-            <span class="list-infos">Prénom</span>
             <span class="list-infos">Nom</span>
+            <span class="list-infos">Prénom</span>
             <span class="list-infos">Adresse</span>
             <span class="list-infos">Code Postal</span>
             <span class="list-infos">Ville</span>
@@ -48,8 +48,8 @@
           </li>
           <% @csv_storages.each do |row| %>
             <li class="loader-infos-donations">
-              <span class="list-infos"><%= row.first_name.capitalize %></span>
-              <span class="list-infos"><%=row.last_name.capitalize %></span>
+              <span class="list-infos"><%= row.last_name.capitalize %></span>
+              <span class="list-infos"><%=row.first_name.capitalize %></span>
               <span class="list-infos"><%=row.address %></span>
               <span class="list-infos"><%=row.zip_code %></span>
               <span class="list-infos"><%=row.city.capitalize %></span>
@@ -63,5 +63,3 @@
     </div>
   </div>
 </div>
-
-

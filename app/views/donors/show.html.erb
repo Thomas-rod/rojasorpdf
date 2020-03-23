@@ -16,12 +16,20 @@
           <% @donor.donations.each do |donation| %>
             <button type="button" class="button-donation-modal" data-toggle="modal" data-target="#exampleModal<%= counter %>" data-whatever="@getbootstrap">
               <li class="list-infos-donors">
-                <span class="list-infos"><p><%= donation.amount%>€</p></span>
-                <span class="list-infos"><p><%= donation.date%></p></span>
+                <span class="list-infos">
+                  <p><%= donation.amount%>€</p>
+                </span>
+                <span class="list-infos">
+                  <p><%= donation.date%></p>
+                </span>
                 <% if  donation.fiscal_recip == false %>
-                  <span class="list-infos"><p>Non envoyé</p></span>
+                  <span class="list-infos">
+                    <p>Non envoyé</p>
+                  </span>
                 <% else %>
-                  <span class="list-infos"><p>Envoyé</p></span>
+                  <span class="list-infos">
+                    <p>Envoyé</p>
+                  </span>
                 <% end %>
                 <span class="list-infos"><i class="far fa-file-pdf"></i></span>
               </li>
@@ -31,11 +39,11 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Don N°<%= donation.id %> - <%= donation.donor.last_name %> <%= donation.donor.first_name %></h5>
-                      <% if donation.fiscal_recip == false %>
-                        <%= link_to 'Envoyer par email', donor_donation_path(donation.donor, donation), method: 'patch', class: 'send-button-pdf' %>
-                      <% else %>
-                        <span class='send-button-pdf-success'> Envoyé</span>
-                     <% end %>
+                    <% if donation.fiscal_recip == false %>
+                      <%= link_to 'Envoyer par email', donor_donation_path(donation.donor, donation), method: 'patch', class: 'send-button-pdf' %>
+                    <% else %>
+                      <span class='send-button-pdf-success'> Envoyé</span>
+                    <% end %>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -85,7 +93,7 @@
                   <%= f.input :zip_code, input_html: { autocomplete: "#{@donor.zip_code}" } %>
                   <%= f.input :email, input_html: { autocomplete: "#{@donor.email}" } %>
                   <%= f.input :status, collection: Donor::STATUS_DONOR, input_html: { autocomplete: "#{@donor.status.capitalize}",  } %>
-              </div>
+                </div>
                 <div class="modal-footer">
                   <%= link_to donor_path(@donor) do %>
                     <button class="send-button-pdf-success">Fermer</button>
