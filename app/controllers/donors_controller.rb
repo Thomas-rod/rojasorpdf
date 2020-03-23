@@ -3,7 +3,7 @@ class DonorsController < ApplicationController
   # CRUD
 
   def index
-    @donors = Donor.all
+    @donors = Donor.all.order(first_name: 'ASC')
   end
 
   def show
@@ -24,6 +24,16 @@ class DonorsController < ApplicationController
       redirect_to donors_path
     else
       render :new
+    end
+  end
+
+
+  def update
+    @donor = Donor.find(params[:id])
+    if @donor.update!(params_donors)
+      redirect_to donor_path(@donor), notice: "Vos modifications ont bien été enregistrées"
+    else
+      render :new, notice: "Un problème lors de la modification est survenu"
     end
   end
 

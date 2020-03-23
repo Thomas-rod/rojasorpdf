@@ -3,7 +3,7 @@ class DonationsController < ApplicationController
 
   def index
     @donors = Donor.all
-    @donations = Donation.all
+    @donations = Donation.all.order(date: 'DESC')
   end
 
   def show

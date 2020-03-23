@@ -1,29 +1,16 @@
-ul {
-  padding: 0px;
-}
 
-.head-list-donors {
-  margin: 5% 10% 5% 5%;
-  h1 {
-    margin-bottom: 10px;
-  }
-  h2 {
-    margin-bottom: 10px;
-  }
-}
-
-.list-donors {
+.list-donations {
   overflow-y: scroll;
   width: 75%;
   box-shadow: 0 0px 1.5px rgba(0, 0, 0, 0.4);
   height: 70%;
-  max-height:80vh;
+  max-height: 80vh;
   border-radius: 15px;
-  margin-left:5%;
-  text-align:center;
+  margin-left: 5%;
+  text-align: center;
 }
 
-.list-donors a {
+.list-donations a {
   text-decoration:none;
   color: black;
   background-color: $green-roja-light;
@@ -33,23 +20,11 @@ ul {
   }
 }
 
-.list-infos-donors {
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  .list-infos {
-    padding: 10px 0%;
-  }
-  &:hover {
-    background-color: $red-roja;
-    opacity: 0.7;
-  }
-}
-
-.list-header-donors {
+.list-header-donations {
   position:sticky;
   top:0px;
   display:grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 15% 15% 20% 50%;
   color:$white;
   font-weight: bold;
   background-color: $green-roja-light;
@@ -60,8 +35,20 @@ ul {
   &:last-child {
     border-radius: 0px 15px 0px 0px;
   }
-  .list-infos {
+  .donations {
     padding: 10px 0%;
+  }
+}
+
+.list-infos-donations {
+  display:grid;
+  grid-template-columns: 15% 15% 20% 50%;
+  .donations {
+    padding: 10px 0%;
+  }
+  &:hover {
+    background-color: $red-roja;
+    opacity: 0.7;
   }
 }
 

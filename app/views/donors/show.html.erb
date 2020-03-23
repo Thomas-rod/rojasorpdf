@@ -60,12 +60,42 @@
       </div>
       <div class="card-donor donor-informations">
         <ul>
-          <li class="informations-name"> <%= @donor.first_name %> <%= @donor.last_name %> </li>
+          <li class="informations-name"> <%= @donor.last_name %> <%= @donor.first_name %> </li>
           <li class="informations"> Email : <%= @donor.email %></li>
           <li class="informations">Status : <%= @donor.status %></li>
           <li class="informations">Nombre dons : <%= @donor.donations.count %></li>
           <li class="informations">Montant dons : <%= sum_donations(@donor).round %>€</li>
         </ul>
+        <button type="button" class="send-button-pdf" data-toggle="modal" data-target="#exampleModalCenter">Modifier</button>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Modifications de <%= @donor.first_name %> <%= @donor.last_name %></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= simple_form_for(@donor, url: donor_path(@donor), method: 'patch') do |f| %>
+                  <%= f.input :first_name, input_html: { autocomplete: "#{@donor.first_name}" }%>
+                  <%= f.input :last_name, input_html: { autocomplete: "#{@donor.last_name}" } %>
+                  <%= f.input :address, input_html: { autocomplete: "#{@donor.address}" } %>
+                  <%= f.input :city, input_html: { autocomplete: "#{@donor.city}" } %>
+                  <%= f.input :zip_code, input_html: { autocomplete: "#{@donor.zip_code}" } %>
+                  <%= f.input :email, input_html: { autocomplete: "#{@donor.email}" } %>
+                  <%= f.input :status, collection: Donor::STATUS_DONOR, input_html: { autocomplete: "#{@donor.status.capitalize}",  } %>
+              </div>
+                <div class="modal-footer">
+                  <%= link_to donor_path(@donor) do %>
+                    <button class="send-button-pdf-success">Fermer</button>
+                  <% end %>
+                  <%= f.button :submit, 'Modifier', class: "send-button-pdf" %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
