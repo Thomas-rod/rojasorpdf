@@ -45,17 +45,22 @@
             <span class="list-infos">Email</span>
             <span class="list-infos">Status</span>
             <span class="list-infos">Montant</span>
+            <span class="list-infos">Importé</span>
           </li>
           <% @csv_storages.each do |row| %>
             <li class="loader-infos-donations">
               <span class="list-infos"><%= row.last_name.capitalize %></span>
               <span class="list-infos"><%=row.first_name.capitalize %></span>
-              <!-- <span class="list-infos"><%=row.address %></span> -->
               <span class="list-infos"><%=row.zip_code %></span>
               <span class="list-infos"><%=row.platform.capitalize %></span>
               <span class="list-infos"><%=row.email %></span>
               <span class="list-infos"><%=row.status.capitalize %></span>
               <span class="list-infos"><%=row.amount %>€</span>
+              <% if row.import_status == true  %>
+                <span class="list-infos"><i class="fas fa-check-circle"></i></span>
+              <% else %>
+                <span class="list-infos"><i class="fas fa-times-circle"></i></span>
+              <% end %>
             </li>
           <% end %>
         </ul>
