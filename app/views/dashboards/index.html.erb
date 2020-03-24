@@ -4,33 +4,47 @@
   </div>
   <div class="dashboard-right">
     <div class="dashboard-datas">
-      <h2> Bonjour <%= current_user.first_name %>,</h2>
-      <h4 class="mt-5">Souhaites-tu ajouter de nouvelles donations ?</h4>
-      <div class="container-add-donations">
-        <%= link_to 'Télécharger le template CSV', @url_excel_template ,target: '_blank', class: 'button-light' %>
-        <button type="button" class="button-download" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Déposer le fichier CSV</button>
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sélectionner le fichier CSV</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%= simple_form_for @csv_storage, :url => { :controller => "csv_storages", :action => "import" }, :html => {:method => :post}, multipart: true do |f| %>
-                  <%= f.file_field :file, accept: ".csv" %>
+      <div class="dashboard-datas-left">
+        <h2> Bonjour <%= current_user.first_name %>,</h2>
+        <h4 class="mt-5">Souhaites-tu ajouter de nouvelles donations ?</h4>
+        <div class="container-add-donations">
+          <%= link_to 'Télécharger le template CSV', @url_excel_template ,target: '_blank', class: 'button-light' %>
+          <button type="button" class="button-download" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Déposer le fichier CSV</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Sélectionner le fichier CSV</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-                <div class="modal-footer">
-                  <button type="button" class="button-light-small" data-dismiss="modal">Fermer</button>
-                  <%= f.submit 'Valider', class: 'button-download-small'%>
-                <% end %>
+                <div class="modal-body">
+                  <%= simple_form_for @csv_storage, :url => { :controller => "csv_storages", :action => "import" }, :html => {:method => :post}, multipart: true do |f| %>
+                    <%= f.file_field :file, accept: ".csv" %>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="button-light-small" data-dismiss="modal">Fermer</button>
+                    <%= f.submit 'Valider', class: 'button-download-small'%>
+                  <% end %>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="dashboard-datas-right">
+        <h5>Informations globales</h5>
+        <p>Montant total dons : <strong><%= @global_donation.round %>€</strong></p>
+        <p>Nombre de donateurs : <strong><%=  @donations.count %></strong></p>
+        <p>Nombre de dons : <strong><%= @donors.count %></strong></p>
+      </div>
+      <% if (@csv_storages.nil? || @csv_storages.count == 0) %>
+      <% else %>
+        <div class="dashboard-datas-loader">
+          <p>Nombre de lignes importés : <%= @csv_storages.where(status: true).count %></p>
+        </div>
+      <% end %>
     </div>
     <div class="dashboard-donations-loader">
       <h4>Voici le détail des donations que tu viens de déposer</h4>
@@ -39,7 +53,6 @@
           <li class="loader-header">
             <span class="list-infos">Nom</span>
             <span class="list-infos">Prénom</span>
-            <!-- <span class="list-infos">Adresse</span> -->
             <span class="list-infos">Code Postal</span>
             <span class="list-infos">Plateforme</span>
             <span class="list-infos">Email</span>

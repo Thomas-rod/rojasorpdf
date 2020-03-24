@@ -5,6 +5,7 @@ class DonorsController < ApplicationController
   def index
     @global_donation = global_donation
     @donors = Donor.all.order(last_name: 'ASC')
+    @donations = Donation.all
     @search = params["search"]
     if @search.present?
       @name = @search["name"]
@@ -33,7 +34,6 @@ class DonorsController < ApplicationController
     end
   end
 
-
   def update
     @donor = Donor.find(params[:id])
     if @donor.update!(params_donors)
@@ -53,14 +53,6 @@ class DonorsController < ApplicationController
   end
 
   private
-
-  def global_donation
-    counter = 0
-    global_donation_amount = Donation.all.map do |donation|
-      counter += donation.amount
-    end
-    return counter
-  end
 
   def params_donors
     params.require(:donor).permit(:first_name,:last_name,:address,:zip_code, :city, :email, :status)

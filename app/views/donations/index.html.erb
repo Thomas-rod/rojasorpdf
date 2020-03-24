@@ -3,9 +3,17 @@
     <%= render partial: 'shared/dashboard' %>
   </div>
   <div class="dashboard-right">
-    <div class="head-list-donors">
-      <h1>Bonjour <%= current_user.first_name %> !</h1>
-      <h2>Voici la liste de l'ensemble des donations</h2>
+    <div class="dashboard-datas">
+      <div class="dashboard-datas-left">
+        <h2> Bonjour <%= current_user.first_name %>,</h2>
+        <h4 class="mt-5">Tu vas retrouver l'ensemble des dons qui ont été fait pour ton association</h4>
+      </div>
+      <div class="dashboard-datas-right">
+        <h5>Informations globales</h5>
+        <p>Montant total dons : <strong><%= @global_donation.round %>€</strong></p>
+        <p>Nombre de donateurs : <strong><%=  @donations.count %></strong></p>
+        <p>Nombre de dons : <strong><%= @donors.count %></strong></p>
+      </div>
     </div>
     <div class="list-donations">
       <ul>

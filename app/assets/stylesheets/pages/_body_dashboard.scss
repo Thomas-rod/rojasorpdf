@@ -13,10 +13,36 @@
   width:100%;
 }
 
+
 // CONTAINER DASHBOARD HEADER
 .dashboard-datas {
-  margin: 5% 28% 5% 5%;
+  margin: 3% 4%;
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  position:relative;
+}
+
+.dashboard-datas-left {
   width: 55%;
+}
+
+.dashboard-datas-right {
+  width: 35%;
+  padding: 2% 5%;
+  border-radius: 15px;
+  background-color: $green-roja-light;
+  opacity: 0.7;
+  box-shadow: 0 0px 1.5px rgba(0, 0, 0, 0.2);
+}
+.dashboard-datas-loader {
+  width: 35%;
+  position: absolute;
+  bottom: -37%;
+  right: 0%;
+  padding: 2% 5%;
+  border-radius: 15px;
+  box-shadow: 0 0px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .container-add-donations {

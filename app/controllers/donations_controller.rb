@@ -4,6 +4,7 @@ class DonationsController < ApplicationController
   def index
     @donors = Donor.all
     @donations = Donation.all.order(date: 'DESC')
+    @global_donation = global_donation
   end
 
   def show
